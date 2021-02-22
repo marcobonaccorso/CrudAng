@@ -67,7 +67,33 @@ export class Visualizza implements State {
     }
 }
 
+export class Rimuovi implements State {
+    next(e: Event, a: AutomaCrud) {
+        if (e instanceof AnnullaEvent) {
+            a.stato = new Visualizza();
+        }
+        else if (e instanceof ConfermaEvent) {
+            a.stato = new Ricerca();
+        }
+        else {
+            console.log('ricevuto evento' + e + 'non previsto');
+        }
+    }
+}
 
+export class Modifica implements State {
+    next(e: Event, a: AutomaCrud) {
+        if (e instanceof AnnullaEvent) {
+            a.stato = new Visualizza();
+        }
+        else if (e instanceof ConfermaEvent) {
+            a.stato = new Visualizza();
+        }
+        else {
+            console.log('ricevuto evento' + e + 'non previsto');
 
+        }
 
+    }
+}
 
