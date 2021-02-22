@@ -1,14 +1,16 @@
+<div *ngIf="showFormDati">
 <button (click)="Add()" *ngIf="showNew">Nuova</button>
-<button (click)="Conferma()" *ngIf="showNew">Conferma</button>
-<button (click)="Annulla()" *ngIf="showNew">Annulla</button>
-<button (click)="Modifica()" *ngIf="showNew">Modifica</button>
-<button (click)="Rimuovi()" *ngIf="showNew">Rimuovi</button>
-<button (click)="Ricerca()" *ngIf="showNew">Ricerca</button>
-<button (click)="Seleziona()" *ngIf="showNew">Seleziona</button>
+<button (click)="Conferma()" *ngIf="showConferma">Conferma</button>
+<button (click)="Annulla()" *ngIf="showAnnulla">Annulla</button>
+<button (click)="Modifica()" *ngIf="showModifica">Modifica</button>
+<button (click)="Rimuovi()" *ngIf="showRimuovi">Rimuovi</button>
 <input type="text" [(ngModel)]="prodotto.codice">
 <input type="text" [(ngModel)]="prodotto.descrizione">
+</div>
+<button (click)="Seleziona()" *ngIf="showSeleziona">Seleziona</button>
 <input type="text" [(ngModel)]="prodotto.cercapercodice">
-<table border="5px" style="width:100%">
+<button (click)="Ricerca()" *ngIf="showRicerca">Ricerca</button>
+<table  *ngIf="showTable" border="5px" style="width:100%">
   <tr>
     <th></th>
     <th></th>
