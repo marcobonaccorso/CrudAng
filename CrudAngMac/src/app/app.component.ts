@@ -7,14 +7,12 @@ import { Prodotto } from './prodotto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // proprietà funzionali dell'interfaccia utente
+ 
   prodotto: Prodotto = new Prodotto();
-  prodotti: Prodotto[] = []; // il vero DB
-  righe: Prodotto[] = []; // la lista filtrata tramite ricerca
+  prodotti: Prodotto[] = []; 
+  righe: Prodotto[] = []; 
   criterioRicerca: string = "";
   rigaCorrente: number;
-  codice : Prodotto;
-  descrizione : Prodotto;
 
   // stato della UI
   stato: string = "RIC";
@@ -52,7 +50,8 @@ export class AppComponent {
           this.showNuova = false;
           this.showConferma = true;
           this.showAnnulla = true;
-          this.codice = true;
+        // this.prodotto.codice = true;
+        // this.prodotto.descrizione = true;
           this.stato = "AGG";
     }
   }
