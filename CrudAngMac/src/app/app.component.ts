@@ -12,7 +12,11 @@ export class AppComponent implements Automabile {
 
   prodotto: Prodotto = new Prodotto();
   criterioRicerca: string = "";
-  automa: AutomaCrud = new AutomaCrud(this);
+  automa: AutomaCrud;
+  constructor(){
+    this.automa = new AutomaCrud(this);
+  }
+
 
   // proprietà per la gestione del layout della UI
   showFormDati: boolean = false;

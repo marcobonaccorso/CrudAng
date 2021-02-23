@@ -8,9 +8,9 @@
 <input type="text" [(ngModel)]="prodotto.descrizione">
 </div>
 <button (click)="Seleziona()" *ngIf="showSeleziona">Seleziona</button>
-<input type="text" [(ngModel)]="prodotto.criterioRicerca">
+<input type="text" [(ngModel)]="criterioRicerca">
 <button (click)="Ricerca()" *ngIf="showRicerca">Ricerca</button>
-<table  *ngIf="showTable" border="5px" style="width:100%">
+<table  *ngIf="showTable">
   <tr>
     <th></th>
     <th></th>
