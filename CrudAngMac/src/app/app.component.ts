@@ -16,18 +16,54 @@ export class AppComponent implements Automabile {
   constructor() {
     this.automa = new AutomaCrud(this);
   }
+  entraStatoRicerca() {
+    this.showFormDati = false;
+    this.showSeleziona = true;
+    this.showNuova = true;
+    this.showRicerca = true;
+    this.showTable = true;
+    this.showModifica = false;
+  }
   entraStatoAggiungi() {
-    throw new Error('Method not implemented.');
+    this.showFormDati = false;
+    this.showAnnulla = true;
+    this.showConferma = true;
+    this.showSeleziona = false;
+    this.showNuova = false;
+    this.showRicerca = false;
+    this.showTable = false;
   }
   entraStatoVisualizza() {
-    throw new Error('Method not implemented.');
+    this.showFormDati = true;
+    this.showAnnulla = false;
+    this.showConferma = false;
+    this.showSeleziona = true;
+    this.showNuova = true;
+    this.showRicerca = true;
+    this.showTable = true;
+    this.showModifica = true;
   }
   entraStatoRimuovi() {
-    throw new Error('Method not implemented.');
+    this.showFormDati = true;
+    this.showAnnulla = true;
+    this.showConferma = true;
+    this.showModifica = false;
+    this.showSeleziona = false;
+    this.showNuova = false;
+    this.showRicerca = false;
+    this.showTable = false;
   }
   entraStatoModifica() {
-    throw new Error('Method not implemented.');
+    this.showFormDati = true;
+    this.showRimuovi = false;
+    this.showModifica = false;
+    this.showSeleziona = false;
+    this.showNuova = false;
+    this.showRicerca = false;
+    this.showTable = false;
   }
+
+
 
 
   // proprietà per la gestione del layout della UI
@@ -66,12 +102,6 @@ export class AppComponent implements Automabile {
   ricerca() {
     this.automa.next(new RicercaEvent());
   }
-  entraStatoRicerca(){
-    this.showFormDati=false;
-    this.showSeleziona=true;
-    this.showNuova=true;
-    this.showRicerca=true;
-    this.showTable=true;
-  }
-  
+
+
 }
