@@ -1,8 +1,13 @@
-import { AddEvent, AnnullaEvent, ConfermaEvent, RicercaEvent, RimuoviEvent, SelezionaEvent, State } from "./state";
+import { AddEvent, AnnullaEvent, ConfermaEvent, Event, ModificaEvent, RicercaEvent, RimuoviEvent, SelezionaEvent, State } from "./state";
 
 export class AutomaCrud implements State {
 
+    ui: Automabile;
     stato: State;
+
+    constructor(ui: Automabile) {
+        this.ui = ui;
+    }
 
     next(e: Event) {
         this.stato.next(e);
@@ -95,5 +100,11 @@ export class Modifica implements State {
         }
 
     }
+}
+
+export interface Automabile {
+
+
+
 }
 

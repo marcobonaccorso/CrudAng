@@ -1,21 +1,18 @@
 import { Component } from '@angular/core';
+import { Automabile, AutomaCrud } from './automa';
 import { Prodotto } from './prodotto';
+import { AddEvent } from './state';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
- 
-  prodotto: Prodotto = new Prodotto();
-  prodotti: Prodotto[] = []; 
-  righe: Prodotto[] = []; 
-  criterioRicerca: string = "";
-  rigaCorrente: number;
+export class AppComponent implements Automabile {
 
-  // stato della UI
-  stato: string = "RIC";
+  prodotto: Prodotto = new Prodotto();
+  criterioRicerca: string = "";
+  automa: AutomaCrud = new AutomaCrud(this);
 
   // proprietà per la gestione del layout della UI
   showFormDati: boolean = false;
@@ -30,30 +27,7 @@ export class AppComponent {
   disableInputs: boolean = false;
 
   add() {
-    switch (this.stato) {
-      case "RIC":
-        this.showFormDati = false;
-        this.showModifica = false;
-        this.showConferma = false;
-        this.showNuova = true;
-        this.showSeleziona = true;
-        this.showRicerca = true;
-        this.showTable = true;
-        this.stato = "AGG";
-        break;
-      default:
-        console.log("evento add imprevisto");
-        break;
-        case "VIS":
-          this.showFormDati = true;
-          this.showRicerca = false;
-          this.showNuova = false;
-          this.showConferma = true;
-          this.showAnnulla = true;
-        // this.prodotto.codice = true;
-        // this.prodotto.descrizione = true;
-          this.stato = "AGG";
-    }
+    this.automa.next(new AddEvent());
   }
-}
 
+}
