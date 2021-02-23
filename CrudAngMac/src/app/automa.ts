@@ -7,6 +7,7 @@ export class AutomaCrud implements State {
 
     constructor(ui: Automabile) {
         this.ui = ui;
+        //this.stato = new RicercaEvent;
     }
 
     next(e: Event) {
@@ -104,8 +105,11 @@ export class Modifica implements State {
 
 export interface Automabile {
 
-
-
+    entraStatoRicerca();
+    entraStatoAggiungi();
+    entraStatoVisualizza();
+    entraStatoRimuovi();
+    entraStatoModifica();
 
 }
 
